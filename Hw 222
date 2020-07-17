@@ -1,0 +1,64 @@
+def carrylessAdd(x,y):
+	if x < 0 or y < 0 or type(x) != int or type(y) != int:
+		return False
+	else:
+		z = max(len(str(x)),len(str(y)))
+		
+		result = 0
+		for i in range (1,z+1):
+			a = (( (x / (10 **(i -1)) ) % 10) + (y / (10 **(i - 1)) ) % 10) % 10 * (10 ** (i -1 )) 
+			result += a 
+		return result
+
+print carrylessAdd (132,17)
+
+# def rotatethenumberleft(x):
+# 	z = len(str(x))
+# 	first = x * 10
+# 	second = first + (x/ (10 ** (z -1)) %10)
+# 	third = second - (x/ (10 ** (z -1)) %10) * 10 ** z 
+# 	return third
+# print rotatethenumberleft(1234)
+
+def rotateTheNumberRight(x):
+	c = len(str(x))
+	step1 = ( x % 10 ) * (10 ** c) + x
+	step2 = (step1 - ( x % 10 )) / 10 
+	return step2
+
+
+def isItPrime(x):
+	if x == 1: return False
+	for divide in range(2,x):
+		if x % divide == 0:
+			return False
+	return True
+
+def isItCircularPrime(x):
+	counter = 0
+	while counter <= len(str(x))-1:
+		if isItPrime(x) == True:
+			counter += 1
+			rotateTheNumberRight(x)
+	if counter == len(str(x)):
+		return True
+
+def nthCircularPrime(n):
+	counter = 0
+	integer = 1
+	while counter < n:
+		integer += 1 
+		if isItCircularPrime(integer) == True: 
+			counter += 1
+	return integer
+print nthCircularPrime(2)
+
+# def nthPrime(n):
+# 	counter = 0
+# 	integer = 1
+# 	while counter < n:
+# 		integer += 1 
+# 		if isItPrime(integer) == True: 
+# 			counter += 1
+# 	return integer
+# print nthPrime (3)
