@@ -1,0 +1,19 @@
+def mostFrequentLetters(s):
+	newstring = ""
+	maxcounter = 0
+	maxstring = ""
+	s = s.lower().replace(" ","")
+	while len(s) > 0:
+		for i in range (0,len(s)): # 이걸 for i in s로 가능 range 쓸필요 x
+			b = s.count(s[i])
+			if b > maxcounter:
+				maxcounter = b
+				maxstring = s[i]
+		
+		newstring += maxstring
+		s = s.replace( maxstring ,"") # ********
+		maxcounter = 0
+		maxstring = ""
+	return newstring
+
+print mostFrequentLetters("We attack at dawn")
