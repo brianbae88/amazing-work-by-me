@@ -1,5 +1,9 @@
 def isPrime(x):
+<<<<<<< HEAD
 	if x == 1 or x < 0:		#Good 
+=======
+	if x == 1 or x < 0:                          # this is where you check if x is sma;ller than 1 
+>>>>>>> 3c4e3be18155db0b3cd9d30a4b800dfb4c740e55
 		return False
 	for i in range (2, x):	#Try to modify x in range 
 		print i 
@@ -23,6 +27,7 @@ def nthPrime(n):			#If set numbers are 0, then you need to change the numbers or
 
 print nthPrime(4)
 
+<<<<<<< HEAD
 def testisPrime(): 
 	print("Testing isPrime()....")
 	assert (isPrime(-1) == False)
@@ -33,3 +38,22 @@ def testisPrime():
 	print ("Passed!")
 
 testisPrime()
+=======
+
+
+
+def testIsPrime():
+    print("Testing isPrime()...")
+    assert(isPrime(-1) == False)  # negative
+    assert(isPrime(0) == False)   # zero
+    assert(isPrime(1) == False)   # 1 is quite the special case
+    assert(isPrime(2) == True)    # 2, only even prime
+    assert(isPrime(3) == True)    # 3, smallest odd prime
+    assert(isPrime(4) == False)   # 4, smallest even non-prime
+    assert(isPrime(9) == False)   # 9, perfect square of odd prime
+    assert(isPrime(987) == False) # somewhat larger non-prime
+    assert(isPrime(997) == True)  # somewhat larger prime
+    print("Passed!")
+
+testIsPrime()
+>>>>>>> 3c4e3be18155db0b3cd9d30a4b800dfb4c740e55
